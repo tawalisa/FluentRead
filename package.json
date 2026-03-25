@@ -1,5 +1,5 @@
 {
-  "name": "流畅阅读",
+  "name": "交译通",
   "description": "一款革命性的浏览器开源翻译插件，让所有人都能够拥有母语般的阅读体验",
   "private": true,
   "version": "0.0.28",
@@ -11,6 +11,8 @@
     "build:firefox": "wxt build -b firefox",
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
+    "pack": "node scripts/pack.cjs",
+    "pack:manual": "echo '请手动运行：pnpm build && powershell -ExecutionPolicy Bypass -File ./pack-crx.ps1'",
     "compile": "vue-tsc --noEmit",
     "postinstall": "wxt prepare",
     "docs:dev": "vitepress dev docs",
