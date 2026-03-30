@@ -21,6 +21,7 @@ import newapi from "./newapi";
 import azureOpenai from "./azure-openai";
 import chromeTranslator from "./chrome-translator";
 import hunyuanTranslation from "./hunyuan-translation";
+import localBackend from "./localBackend";
 
 type ServiceFunction = (message: any) => Promise<any>;
 type ServiceMap = {[key: string]: ServiceFunction;};
@@ -35,6 +36,7 @@ export const _service: ServiceMap = {
     [services.youdao]: youdao,
     [services.tencent]: tencent,
     [services.chromeTranslator]: chromeTranslator,
+    [services.localBackend]: localBackend,
 
     // 大模型翻译
     [services.custom]: custom,

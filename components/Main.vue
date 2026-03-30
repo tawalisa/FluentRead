@@ -242,6 +242,22 @@
       </el-col>
     </el-row>
 
+    <!-- 本地后端接口 URL 配置 -->
+    <el-row v-show="compute.showLocalBackend" class="margin-bottom margin-left-2em">
+      <el-col :span="12" class="lightblue rounded-corner">
+        <el-tooltip class="box-item" effect="dark"
+          content="本地后端翻译 API 服务地址，默认为 http://localhost:8080/api/chat/translate。请求格式：POST {content, targetLanguage}" placement="top-start"
+          :show-after="500">
+          <span class="popup-text popup-vertical-left">服务地址<el-icon class="icon-margin">
+              <ChatDotRound />
+            </el-icon></span>
+        </el-tooltip>
+      </el-col>
+      <el-col :span="12">
+        <el-input v-model="config.proxy.localBackend" placeholder="http://localhost:8080/api/chat/translate" />
+      </el-col>
+    </el-row>
+
     <!-- 使用AkSk -->
     <el-row v-show="compute.showAkSk" class="margin-bottom margin-left-2em">
       <el-col :span="12" class="lightblue rounded-corner">
@@ -748,6 +764,8 @@ let compute = ref({
   showCustom: computed(() => servicesType.isCustom(config.value.service)),
   // 9、是否显示 DeepLX URL 配置
   showDeepLX: computed(() => config.value.service === 'deeplx'),
+  // 9.1、是否显示本地后端接口 URL 配置
+  showLocalBackend: computed(() => config.value.service === 'localBackend'),
   // 10、是否自定义模型
   showCustomModel: computed(() => servicesType.isAI(config.value.service) && config.value.model[config.value.service] === "自定义模型"),
   // 11、判断是否为"双语模式"，控制一些翻译服务的显示

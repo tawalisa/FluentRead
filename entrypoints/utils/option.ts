@@ -7,6 +7,7 @@ export const services = {
     xiaoniu: "xiaoniu",
     youdao: "youdao",
     tencent: "tencent", // 腾讯云机器翻译
+    localBackend: "localBackend", // 本地后端翻译接口
     // 大模型翻译
     openai: "openai",
     azureOpenai: "azureOpenai", // Azure OpenAI
@@ -39,7 +40,7 @@ export const services = {
 
 export const servicesType = {
     // 阵营划分
-    machine: new Set([services.microsoft, services.deepL, services.deeplx, services.google, services.xiaoniu, services.youdao, services.tencent, services.chromeTranslator,]),
+    machine: new Set([services.microsoft, services.deepL, services.deeplx, services.google, services.xiaoniu, services.youdao, services.tencent, services.chromeTranslator, services.localBackend,]),
     AI: new Set([
         services.openai,
         services.azureOpenai,
@@ -262,6 +263,7 @@ export const options = {
         {value: services.xiaoniu, label: "小牛翻译"},
         {value: services.youdao, label: "有道翻译"},
         {value: services.tencent, label: "腾讯云翻译"},
+        {value: services.localBackend, label: "本地后端接口⭐"},
         // 大模型翻译
         {value: "ai", label: "AI翻译", disabled: true},
         {value: services.chromeTranslator, label: "Chrome内置AI翻译⭐"},
